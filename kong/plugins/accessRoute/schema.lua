@@ -1,6 +1,6 @@
 local typedefs = require "kong.db.schema.typedefs"
 
-local PLUGIN_NAME = "myplugin"
+local PLUGIN_NAME = "accessRoute"
 
 local schema = {
   name = PLUGIN_NAME,
