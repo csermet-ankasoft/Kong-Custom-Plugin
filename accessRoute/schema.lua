@@ -10,23 +10,14 @@ local schema = {
     { config = {
         type = "record",
         fields = {
-          { service_x_host = {
+          { redirect_service_host = {
               type = "string",
               required = true,
               default = "nginx-deployment.nginx.svc.cluster.local" } },
-          { service_x_port = {
+          { redirect_service_port = {
               type = "integer",
               required = true,
               default = 80 }},
-          { service_y_host = {
-              type = "string",
-              required = true,
-              default = "google.com" } },
-          { service_y_port = {
-              type = "integer",
-              required = true,
-              default = 80 }
-            },
         },
       },
     },

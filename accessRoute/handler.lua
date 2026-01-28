@@ -5,15 +5,15 @@ local plugin = {
 
 function plugin:access(plugin_conf)
   kong.log.inspect(plugin_conf)
+
   local headers = kong.request.get_headers()
   local id_header = headers["id"]
 
   if id_header and id_header == "5" then
-    kong.service.set_target(plugin_conf.service_x_host, plugin_conf.service_x_port)
-  else
-    kong.service.set_target(plugin_conf.service_y_host, plugin_conf.service_y_port)
+    kong.service.set_target(plugin_conf.redirect_service_host, plugin_conf.redirect_service_port)
   end
-  kong.service.request.set_header(plugin_conf.request_header, "this is on a request")
+  
+  kong.service.request.set_header(plugin_conf.request_header, "request Test")
 end
 
 function plugin:header_filter(plugin_conf)
